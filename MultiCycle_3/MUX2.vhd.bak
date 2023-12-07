@@ -1,0 +1,13 @@
+library ieee;
+use ieee.std_logic_1164.all; 
+
+entity MUX2 is
+  port (muxentry0, muxentry1, mux2control : in std_logic;
+     mux2out : out std_logic); 
+end MUX2;
+
+architecture arch of MUX2 is
+begin 
+	muxout <= muxentry1 when (mux2control = '1') else 
+	muxentry0;
+end arch;

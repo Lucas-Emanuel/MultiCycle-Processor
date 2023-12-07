@@ -1,0 +1,15 @@
+
+State Machine - |multi|CONTROLLER:Controller_dp|State_Atual
+Name State_Atual.S11 State_Atual.S10 State_Atual.S9 State_Atual.S8 State_Atual.S7 State_Atual.S6 State_Atual.S5 State_Atual.S4 State_Atual.S3 State_Atual.S2 State_Atual.S1 State_Atual.S0 
+State_Atual.S0 0 0 0 0 0 0 0 0 0 0 0 0 
+State_Atual.S1 0 0 0 0 0 0 0 0 0 0 1 1 
+State_Atual.S2 0 0 0 0 0 0 0 0 0 1 0 1 
+State_Atual.S3 0 0 0 0 0 0 0 0 1 0 0 1 
+State_Atual.S4 0 0 0 0 0 0 0 1 0 0 0 1 
+State_Atual.S5 0 0 0 0 0 0 1 0 0 0 0 1 
+State_Atual.S6 0 0 0 0 0 1 0 0 0 0 0 1 
+State_Atual.S7 0 0 0 0 1 0 0 0 0 0 0 1 
+State_Atual.S8 0 0 0 1 0 0 0 0 0 0 0 1 
+State_Atual.S9 0 0 1 0 0 0 0 0 0 0 0 1 
+State_Atual.S10 0 1 0 0 0 0 0 0 0 0 0 1 
+State_Atual.S11 1 0 0 0 0 0 0 0 0 0 0 1 

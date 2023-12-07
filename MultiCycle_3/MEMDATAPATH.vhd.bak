@@ -1,0 +1,71 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.numeric_std.all;
+
+entity MEMDATAPATH is
+	port(
+		ADDRESS : in std_logic_vector(31 downto 0);
+		CLK : in std_logic;
+		WE : in std_logic;
+		WD : in std_logic_vector(31 downto 0);
+		RD : out std_logic_vector(31 downto 0)		
+	);
+end MEMDATAPATH;
+
+architecture arch of MEMDATAPATH is
+
+	component IM is --Por definição, tem 64 endereços. Logo, serão os nossos primeiros
+	PORT									 -- 64 endereços da memória total -> 0 a 63
+	(
+		address		: IN STD_LOGIC_VECTOR (6 DOWNTO 0);
+		clock		: IN STD_LOGIC  := '1';
+		q		: OUT STD_LOGIC_VECTOR (31 DOWNTO 0)
+	);
+	end component;
+	
+	component DataMemory is -- Por definição, tem 128 endereços. Logo, ocupará os espaços após a memoria
+	PORT							-- de instruções-> 64 a 191.
+	(
+		address		: IN STD_LOGIC_VECTOR (6 DOWNTO 0);
+		clock		: IN STD_LOGIC  := '1';
+		data		: IN STD_LOGIC_VECTOR (31 DOWNTO 0);
+		wren		: IN STD_LOGIC ;
+		q		: OUT STD_LOGIC_VECTOR (31 DOWNTO 0)
+	);
+	end component;
+	
+	component Mux2x1 is
+		generic (
+			WORD_SIZE : integer := 32
+		);
+		port(
+			ctrl_entry : in std_logic;
+			mux_entry_0 : in std_logic_vector(0 to WORD_SIZE-1);
+			mux_entry_1 : in std_logic_vector(0 to WORD_SIZE-1);
+			mux_out : out std_logic_vector(0 to WORD_SIZE-1)
+		);
+	end component;
+	
+	--Sinais de controle
+	signal adapted_address_i : std_logic_vector(5 downto 0); --Adapta o endereço para entrada na IM
+	signal adapted_address_d : std_logic_vector(6 downto 0); --Adapta o endereço para entrada na IM
+	signal rd_i, rd_d : std_logic_vector(31 downto 0); -- Controle necessário p/ não compartilhar bus de saída
+	signal IorD : std_logic :='0'; --Controla mux, decide se sai instr ou dado
+	signal conv : std_logic_vector(31 downto 0);
+begin
+	IM : InstructionMemory port map (address=>adapted_address_i, clock=>CLK, q=>rd_i);
+	DM : DataMemory port map (address=>adapted_address_d, clock=>CLK, data=>WD, wren=>WE, q=>rd_d);
+	MUX : Mux2x1 port map (ctrl_entry=> IorD, mux_entry_0=>rd_i, mux_entry_1=>rd_d, mux_out=>RD);
+	
+	adapted_address_i <= address(5 downto 0);
+	conv <=std_logic_vector(unsigned(address)-64);
+	adapted_address_d <= conv(6 downto 0); --Endereços superiores p/ data, logo offset negativo
+	
+	control_IorD : process (address)
+	begin
+	if(unsigned(address)<64) then
+		IorD <= '0';
+	else IorD <='1';
+	end if;
+	end process;
+end arch;

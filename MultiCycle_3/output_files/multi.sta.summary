@@ -1,0 +1,101 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow Model Setup 'CLOCK'
+Slack : -8.364
+TNS   : -1449.859
+
+Type  : Slow Model Setup 'CLOCK_MEM'
+Slack : -5.284
+TNS   : -284.942
+
+Type  : Slow Model Setup 'CONTROLLER:Controller_dp|State_Atual.S0'
+Slack : -3.803
+TNS   : -5.142
+
+Type  : Slow Model Setup 'CONTROLLER:Controller_dp|State_Atual.S10'
+Slack : -1.572
+TNS   : -6.663
+
+Type  : Slow Model Hold 'CLOCK'
+Slack : -7.051
+TNS   : -560.012
+
+Type  : Slow Model Hold 'CONTROLLER:Controller_dp|State_Atual.S10'
+Slack : -3.110
+TNS   : -3.110
+
+Type  : Slow Model Hold 'CLOCK_MEM'
+Slack : -0.031
+TNS   : -0.096
+
+Type  : Slow Model Hold 'CONTROLLER:Controller_dp|State_Atual.S0'
+Slack : 0.655
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'CLOCK_MEM'
+Slack : -2.000
+TNS   : -321.380
+
+Type  : Slow Model Minimum Pulse Width 'CLOCK'
+Slack : -1.627
+TNS   : -661.322
+
+Type  : Slow Model Minimum Pulse Width 'CONTROLLER:Controller_dp|State_Atual.S0'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'CONTROLLER:Controller_dp|State_Atual.S10'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Fast Model Setup 'CLOCK'
+Slack : -3.903
+TNS   : -599.374
+
+Type  : Fast Model Setup 'CLOCK_MEM'
+Slack : -2.309
+TNS   : -134.604
+
+Type  : Fast Model Setup 'CONTROLLER:Controller_dp|State_Atual.S0'
+Slack : -1.459
+TNS   : -1.459
+
+Type  : Fast Model Setup 'CONTROLLER:Controller_dp|State_Atual.S10'
+Slack : -0.409
+TNS   : -0.573
+
+Type  : Fast Model Hold 'CLOCK'
+Slack : -3.510
+TNS   : -302.120
+
+Type  : Fast Model Hold 'CONTROLLER:Controller_dp|State_Atual.S10'
+Slack : -1.745
+TNS   : -1.745
+
+Type  : Fast Model Hold 'CLOCK_MEM'
+Slack : -0.567
+TNS   : -6.808
+
+Type  : Fast Model Hold 'CONTROLLER:Controller_dp|State_Atual.S0'
+Slack : 0.336
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'CLOCK_MEM'
+Slack : -2.000
+TNS   : -321.380
+
+Type  : Fast Model Minimum Pulse Width 'CLOCK'
+Slack : -1.627
+TNS   : -661.322
+
+Type  : Fast Model Minimum Pulse Width 'CONTROLLER:Controller_dp|State_Atual.S0'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'CONTROLLER:Controller_dp|State_Atual.S10'
+Slack : 0.500
+TNS   : 0.000
+
+------------------------------------------------------------

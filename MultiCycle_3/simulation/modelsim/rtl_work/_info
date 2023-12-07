@@ -1,0 +1,435 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\altera\MultiCycle_4\MultiCycle_3\simulation\modelsim
+Ealu
+Z1 w1688688866
+Z2 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z3 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z4 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z5 dC:\altera\MultiCycle_4\MultiCycle_3\simulation\modelsim
+Z6 8C:/altera/MultiCycle_4/MultiCycle_3/ALU.vhd
+Z7 FC:/altera/MultiCycle_4/MultiCycle_3/ALU.vhd
+l0
+L5
+Vz;a4ehgS137:=M<Xnifcc3
+Z8 OV;C;10.1d;51
+31
+Z9 !s108 1688707002.341000
+Z10 !s90 -reportprogress|300|-93|-work|work|C:/altera/MultiCycle_4/MultiCycle_3/ALU.vhd|
+Z11 !s107 C:/altera/MultiCycle_4/MultiCycle_3/ALU.vhd|
+Z12 o-93 -work work -O0
+Z13 tExplicit 1
+!s100 50beT@7Qe8XR4HnWCknW<2
+!i10b 1
+Abehave
+R2
+R3
+R4
+DEx4 work 3 alu 0 22 z;a4ehgS137:=M<Xnifcc3
+l16
+L15
+VT4e9g_QR8`1JQ4FP0AMWS2
+R8
+31
+R9
+R10
+R11
+R12
+R13
+!s100 [5FmZGlKiEIjL8T;XH5<62
+!i10b 1
+Econtroller
+Z14 w1688706397
+R3
+R4
+R5
+Z15 8C:/altera/MultiCycle_4/MultiCycle_3/CONTROLLER.vhd
+Z16 FC:/altera/MultiCycle_4/MultiCycle_3/CONTROLLER.vhd
+l0
+L8
+V2z1;gXI_VZW]JL1KJGz6Q3
+R8
+31
+Z17 !s108 1688707002.799000
+Z18 !s90 -reportprogress|300|-93|-work|work|C:/altera/MultiCycle_4/MultiCycle_3/CONTROLLER.vhd|
+Z19 !s107 C:/altera/MultiCycle_4/MultiCycle_3/CONTROLLER.vhd|
+R12
+R13
+!s100 :42PGe78A2=TiNWh^:G]21
+!i10b 1
+Aarch
+R3
+R4
+DEx4 work 10 controller 0 22 2z1;gXI_VZW]JL1KJGz6Q3
+l29
+L22
+Va^=3obdILf09RE4NUJa@@3
+R8
+31
+R17
+R18
+R19
+R12
+R13
+!s100 ]XPX4KPXOce_KXMTia7_D2
+!i10b 1
+Edm
+Z20 w1688361808
+R3
+R4
+R5
+Z21 8C:/altera/MultiCycle_4/MultiCycle_3/DM.vhd
+Z22 FC:/altera/MultiCycle_4/MultiCycle_3/DM.vhd
+l0
+L42
+VbbPC]JmDG?BMDb;3LaMXK3
+R8
+31
+Z23 !s108 1688707002.686000
+Z24 !s90 -reportprogress|300|-93|-work|work|C:/altera/MultiCycle_4/MultiCycle_3/DM.vhd|
+Z25 !s107 C:/altera/MultiCycle_4/MultiCycle_3/DM.vhd|
+R12
+R13
+!s100 aL0b7<UIM30i8PG3D7EcT2
+!i10b 1
+Asyn
+R3
+R4
+DEx4 work 2 dm 0 22 bbPC]JmDG?BMDb;3LaMXK3
+l86
+L54
+VD<N`]]N=9RXbg>^:eGCo=1
+R8
+31
+R23
+R24
+R25
+R12
+R13
+!s100 C8@:;1nX`OLZAE8Ef0RVF0
+!i10b 1
+Ememdatapath
+Z26 w1688706423
+R2
+R3
+R4
+R5
+Z27 8C:/altera/MultiCycle_4/MultiCycle_3/MEMDATAPATH.vhd
+Z28 FC:/altera/MultiCycle_4/MultiCycle_3/MEMDATAPATH.vhd
+l0
+L5
+V><DO^>A1:=KVAcYS2hnB53
+R8
+31
+Z29 !s108 1688707002.742000
+Z30 !s90 -reportprogress|300|-93|-work|work|C:/altera/MultiCycle_4/MultiCycle_3/MEMDATAPATH.vhd|
+Z31 !s107 C:/altera/MultiCycle_4/MultiCycle_3/MEMDATAPATH.vhd|
+R12
+R13
+!s100 6bX?g_W=67PWABBV`QBAV3
+!i10b 1
+Aarch
+R2
+R3
+R4
+DEx4 work 11 memdatapath 0 22 ><DO^>A1:=KVAcYS2hnB53
+l58
+L15
+VfbT;4>0NRCzRD^OoBngT62
+R8
+31
+R29
+R30
+R31
+R12
+R13
+!s100 n2oURTk6Yc89W::cdCTN63
+!i10b 1
+Ememi
+Z32 w1688706367
+R2
+R3
+R4
+R5
+Z33 8C:/altera/MultiCycle_4/MultiCycle_3/memi.vhd
+Z34 FC:/altera/MultiCycle_4/MultiCycle_3/memi.vhd
+l0
+L10
+VjfCbVRMlCGFUJ:BHS00JO3
+R8
+31
+Z35 !s108 1688707002.918000
+Z36 !s90 -reportprogress|300|-93|-work|work|C:/altera/MultiCycle_4/MultiCycle_3/memi.vhd|
+Z37 !s107 C:/altera/MultiCycle_4/MultiCycle_3/memi.vhd|
+R12
+R13
+!s100 56jQaI6DXISUmWZ5VAFG;1
+!i10b 1
+Acomportamental
+R2
+R3
+R4
+DEx4 work 4 memi 0 22 jfCbVRMlCGFUJ:BHS00JO3
+l37
+L23
+V9gM;J41TRI2FKoIIie[CR2
+R8
+31
+R35
+R36
+R37
+R12
+R13
+!s100 WUhbZo6VWbjaA_d9L8EGQ3
+!i10b 1
+Emulti
+Z38 w1688706608
+R2
+R3
+R4
+R5
+Z39 8C:/altera/MultiCycle_4/MultiCycle_3/multi.vhd
+Z40 FC:/altera/MultiCycle_4/MultiCycle_3/multi.vhd
+l0
+L5
+VYNGLkjjXzn=L`;_nR`=Uz1
+R8
+31
+Z41 !s108 1688707002.855000
+Z42 !s90 -reportprogress|300|-93|-work|work|C:/altera/MultiCycle_4/MultiCycle_3/multi.vhd|
+Z43 !s107 C:/altera/MultiCycle_4/MultiCycle_3/multi.vhd|
+R12
+R13
+!s100 RFR_VKho[Y<R[XOCOeaLh3
+!i10b 1
+Astruct
+R2
+R3
+R4
+DEx4 work 5 multi 0 22 YNGLkjjXzn=L`;_nR`=Uz1
+l148
+L15
+VVRU1mA5D60abnSO1Y0dZh3
+R8
+31
+R41
+R42
+R43
+R12
+R13
+!s100 XFQPXkWjNDQdYWAG=D]IW3
+!i10b 1
+Emux2
+Z44 w1688369303
+R3
+R4
+R5
+Z45 8C:/altera/MultiCycle_4/MultiCycle_3/MUX2.vhd
+Z46 FC:/altera/MultiCycle_4/MultiCycle_3/MUX2.vhd
+l0
+L4
+V3hBG9L[9KRWVcDNY_i_301
+R8
+31
+Z47 !s108 1688707002.406000
+Z48 !s90 -reportprogress|300|-93|-work|work|C:/altera/MultiCycle_4/MultiCycle_3/MUX2.vhd|
+Z49 !s107 C:/altera/MultiCycle_4/MultiCycle_3/MUX2.vhd|
+R12
+R13
+!s100 BKlL;<zOYWbANH8XQzMPQ0
+!i10b 1
+Aarch
+R3
+R4
+DEx4 work 4 mux2 0 22 3hBG9L[9KRWVcDNY_i_301
+l15
+L14
+V=5JIhaHI^=>U7j3C?A]1d0
+R8
+31
+R47
+R48
+R49
+R12
+R13
+!s100 bCn1f=A=KJnK835P;o4Lh1
+!i10b 1
+Emux4
+Z50 w1688355380
+R3
+R4
+R5
+Z51 8C:/altera/MultiCycle_4/MultiCycle_3/MUX4.vhd
+Z52 FC:/altera/MultiCycle_4/MultiCycle_3/MUX4.vhd
+l0
+L4
+VgUQfSKQKgD=k5J`8hZ3mR1
+R8
+31
+Z53 !s108 1688707002.469000
+Z54 !s90 -reportprogress|300|-93|-work|work|C:/altera/MultiCycle_4/MultiCycle_3/MUX4.vhd|
+Z55 !s107 C:/altera/MultiCycle_4/MultiCycle_3/MUX4.vhd|
+R12
+R13
+!s100 iBAUjllROA^HLZZz5zj1X3
+!i10b 1
+Aarch
+R3
+R4
+DEx4 work 4 mux4 0 22 gUQfSKQKgD=k5J`8hZ3mR1
+l12
+L11
+VS@NzdY059Tjn?z^?;FN2F2
+R8
+31
+R53
+R54
+R55
+R12
+R13
+!s100 c_O93Qf2<O?4Cd^D<D9dV2
+!i10b 1
+Eregfile
+Z56 w1688695213
+R2
+R3
+R4
+R5
+Z57 8C:/altera/MultiCycle_4/MultiCycle_3/REGFILE.vhd
+Z58 FC:/altera/MultiCycle_4/MultiCycle_3/REGFILE.vhd
+l0
+L6
+VdT_^jKBm7YQibVE==6PUI1
+R8
+31
+Z59 !s108 1688707002.632000
+Z60 !s90 -reportprogress|300|-93|-work|work|C:/altera/MultiCycle_4/MultiCycle_3/REGFILE.vhd|
+Z61 !s107 C:/altera/MultiCycle_4/MultiCycle_3/REGFILE.vhd|
+R12
+R13
+!s100 ej433QDcS=HVH^P79_;KR2
+!i10b 1
+Aarch
+R2
+R3
+R4
+DEx4 work 7 regfile 0 22 dT_^jKBm7YQibVE==6PUI1
+l21
+L17
+VX8]hz8Rk6f1hMZ>K<ZQZ_0
+R8
+31
+R59
+R60
+R61
+R12
+R13
+!s100 LA>;=dNOAFD@UMO][613T0
+!i10b 1
+Eregister32
+Z62 w1688355885
+R3
+R4
+R5
+Z63 8C:/altera/MultiCycle_4/MultiCycle_3/REGISTER32.vhd
+Z64 FC:/altera/MultiCycle_4/MultiCycle_3/REGISTER32.vhd
+l0
+L4
+VT9:VPRFEb^^;baHcTSoPB1
+R8
+31
+Z65 !s108 1688707002.522000
+Z66 !s90 -reportprogress|300|-93|-work|work|C:/altera/MultiCycle_4/MultiCycle_3/REGISTER32.vhd|
+Z67 !s107 C:/altera/MultiCycle_4/MultiCycle_3/REGISTER32.vhd|
+R12
+R13
+!s100 J;>c3mH_4_hl_mJhd]]5A0
+!i10b 1
+Adescription
+R3
+R4
+DEx4 work 10 register32 0 22 T9:VPRFEb^^;baHcTSoPB1
+l15
+L13
+VPPG^lS9I<dGlnnm^W_NP30
+R8
+31
+R65
+R66
+R67
+R12
+R13
+!s100 9]4ASi4Th?LI7nNPVz5DN1
+!i10b 1
+Esignext
+Z68 w1688690011
+R3
+R4
+R5
+Z69 8C:/altera/MultiCycle_4/MultiCycle_3/SIGNEXT.vhd
+Z70 FC:/altera/MultiCycle_4/MultiCycle_3/SIGNEXT.vhd
+l0
+L4
+Ve9RZ^ShjRcm7K6FaXXiT]0
+R8
+31
+Z71 !s108 1688707002.581000
+Z72 !s90 -reportprogress|300|-93|-work|work|C:/altera/MultiCycle_4/MultiCycle_3/SIGNEXT.vhd|
+Z73 !s107 C:/altera/MultiCycle_4/MultiCycle_3/SIGNEXT.vhd|
+R12
+R13
+!s100 0Lf7Q305cKONBEHJG`AAU1
+!i10b 1
+Artl
+R3
+R4
+DEx4 work 7 signext 0 22 e9RZ^ShjRcm7K6FaXXiT]0
+l12
+L11
+VNmR^m7ehZ8B>T?n9TMiBZ2
+R8
+31
+R71
+R72
+R73
+R12
+R13
+!s100 oBoDV5o@a:^RhbNPXXH:<3
+!i10b 1
+Etestbench
+Z74 w1688685086
+R3
+R4
+R5
+Z75 8C:/altera/MultiCycle_4/MultiCycle_3/TESTBENCH.vhd
+Z76 FC:/altera/MultiCycle_4/MultiCycle_3/TESTBENCH.vhd
+l0
+L46
+VcE>O:FmjIBTofXYXU@bjf2
+!s100 CzFS3E5C:_leO6:^]@RZm1
+R8
+31
+!i10b 1
+Z77 !s108 1688707002.977000
+Z78 !s90 -reportprogress|300|-93|-work|work|C:/altera/MultiCycle_4/MultiCycle_3/TESTBENCH.vhd|
+Z79 !s107 C:/altera/MultiCycle_4/MultiCycle_3/TESTBENCH.vhd|
+R12
+R13
+Aarch
+R3
+R4
+DEx4 work 9 testbench 0 22 cE>O:FmjIBTofXYXU@bjf2
+l63
+L49
+VYNJl75Pdm`2NBg<NloeP]0
+!s100 jWHE5:QGbeTLOn2I1CR`33
+R8
+31
+!i10b 1
+R77
+R78
+R79
+R12
+R13

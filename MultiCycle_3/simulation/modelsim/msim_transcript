@@ -1,0 +1,146 @@
+# Reading C:/altera/13.0sp1/modelsim_ase/tcl/vsim/pref.tcl 
+# do multi_run_msim_rtl_vhdl.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vcom -93 -work work {C:/altera/MultiCycle_4/MultiCycle_3/ALU.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity ALU
+# -- Compiling architecture behave of alu
+# vcom -93 -work work {C:/altera/MultiCycle_4/MultiCycle_3/MUX2.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity MUX2
+# -- Compiling architecture arch of MUX2
+# vcom -93 -work work {C:/altera/MultiCycle_4/MultiCycle_3/MUX4.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity MUX4
+# -- Compiling architecture arch of MUX4
+# vcom -93 -work work {C:/altera/MultiCycle_4/MultiCycle_3/REGISTER32.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity REGISTER32
+# -- Compiling architecture description of REGISTER32
+# vcom -93 -work work {C:/altera/MultiCycle_4/MultiCycle_3/SIGNEXT.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity SIGNEXT
+# -- Compiling architecture rtl of SIGNEXT
+# vcom -93 -work work {C:/altera/MultiCycle_4/MultiCycle_3/REGFILE.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity REGFILE
+# -- Compiling architecture arch of REGFILE
+# vcom -93 -work work {C:/altera/MultiCycle_4/MultiCycle_3/DM.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity DM
+# -- Compiling architecture SYN of dm
+# vcom -93 -work work {C:/altera/MultiCycle_4/MultiCycle_3/MEMDATAPATH.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity MEMDATAPATH
+# -- Compiling architecture arch of MEMDATAPATH
+# vcom -93 -work work {C:/altera/MultiCycle_4/MultiCycle_3/CONTROLLER.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity CONTROLLER
+# -- Compiling architecture arch of CONTROLLER
+# vcom -93 -work work {C:/altera/MultiCycle_4/MultiCycle_3/multi.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity multi
+# -- Compiling architecture struct of multi
+# vcom -93 -work work {C:/altera/MultiCycle_4/MultiCycle_3/memi.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity memi
+# -- Compiling architecture comportamental of memi
+# ** Warning: C:/altera/MultiCycle_4/MultiCycle_3/memi.vhd(34): (vcom-1074) Non-locally static OTHERS choice is allowed only if it is the only choice of the only association.
+# 
+# 
+# vcom -93 -work work {C:/altera/MultiCycle_4/MultiCycle_3/TESTBENCH.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity TESTBENCH
+# -- Compiling architecture arch of TESTBENCH
+# ** Warning: [4] C:/altera/MultiCycle_4/MultiCycle_3/TESTBENCH.vhd(69): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: [4] C:/altera/MultiCycle_4/MultiCycle_3/TESTBENCH.vhd(77): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: [4] C:/altera/MultiCycle_4/MultiCycle_3/TESTBENCH.vhd(79): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: [4] C:/altera/MultiCycle_4/MultiCycle_3/TESTBENCH.vhd(85): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: [4] C:/altera/MultiCycle_4/MultiCycle_3/TESTBENCH.vhd(87): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# 
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneii -L rtl_work -L work -voptargs="+acc"  TESTBENCH
+# vsim -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneii -L rtl_work -L work -voptargs=\"+acc\" -t 1ps TESTBENCH 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.testbench(arch)
+# Loading ieee.numeric_std(body)
+# Loading work.multi(struct)
+# Loading work.memdatapath(arch)
+# Loading work.memi(comportamental)
+# Loading work.dm(syn)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading altera_mf.altera_common_conversion(body)
+# Loading altera_mf.altera_device_families(body)
+# Loading altera_mf.altsyncram(translated)
+# Loading work.mux2(arch)
+# Loading work.controller(arch)
+# Loading work.regfile(arch)
+# Loading work.register32(description)
+# Loading work.signext(rtl)
+# Loading work.mux4(arch)
+# Loading work.alu(behave)
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run 50000 ns
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench/MULTI_tb/alu_dp
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /testbench/MULTI_tb/MemoryDatapath_dp
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /testbench/MULTI_tb/MemoryDatapath_dp/InstructionMemory

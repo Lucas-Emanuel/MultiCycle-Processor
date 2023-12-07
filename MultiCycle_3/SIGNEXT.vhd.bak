@@ -1,0 +1,18 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity SIGNEXT is 
+
+	port(
+			entrada : in std_logic_vector(15 downto 0);
+			saida : out std_logic_vector(31 downto 0)
+	
+	);
+end SIGNEXT;
+	
+architecture rtl of extend is
+begin 
+
+saida <= "0000000000000000" & entrada;
+
+end rtl;

@@ -1,0 +1,261 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+
+entity multi is
+	port (	
+				RESET  : IN std_logic;
+				CLOCK : IN STD_LOGIC;
+				CLOCK_MEM : IN STD_LOGIC;
+				PROCESSOR_OUT : OUT std_logic
+			);
+end microprocessor;
+
+architecture arquitetura of microprocessor is
+
+--Componentes Principais
+	component IDMemory is
+			port(
+				ADDRESS : in std_logic_vector(31 downto 0);
+				CLK : in std_logic;
+				WE : in std_logic;
+				WD : in std_logic_vector(31 downto 0);
+				RD : out std_logic_vector(31 downto 0)		
+			);
+		end component;
+		
+	component Controladora_Processador IS
+		port( 	
+				OP , FUNCT : IN std_logic_vector(5 downto 0);
+				CLK, RST   : IN std_logic;
+				IORD , MEMWRITE , IRWRITE , PCWRITE , BRANCH , ALUSRCA , REGWRITE , REGDST , MEMTOREG : OUT std_logic;
+				ALUCONTROL : OUT std_logic_vector(2 downto 0);
+				PCSRC , ALUSRCB  : OUT std_logic_vector(1 downto 0)
+		 );
+	end component;
+	
+	component RegisterFile is
+		generic (
+			WORD_SIZE : integer:= 32;
+			REG_NUM : INTEGER := 32
+			);
+		port(
+			A1, A2, A3 : in std_logic_vector(0 to 4);
+			WD3 : in std_logic_vector (0 to WORD_SIZE-1);
+			WE3 : in std_logic;
+			CLK : in std_logic;
+			RD1, RD2 : out std_logic_vector (0 to WORD_SIZE-1)
+		);
+	end component;
+	
+	component alu is 
+		port(
+			x: in STD_LOGIC_VECTOR(31 downto 0);
+			y: in STD_LOGIC_VECTOR(31 downto 0);
+			alucontrol: in STD_LOGIC_VECTOR(2 downto 0);
+			saida: out STD_LOGIC_VECTOR(31 downto 0);
+			zero : out STD_LOGIC
+		);
+	end component;
+	
+--Componentes Menores (MUXes, Registradores, etc.)
+
+	component extend is 
+		port(
+			 entrada : in std_logic_vector(15 downto 0);
+				saida : out std_logic_vector(31 downto 0)
+		);
+		end component;
+		 
+	component Mux2x1 is
+		generic 
+		 (
+			WORD_SIZE : integer := 32
+		);
+		port
+		 (
+			 ctrl_entry : in std_logic;
+			mux_entry_0 : in std_logic_vector(0 to WORD_SIZE-1);
+			mux_entry_1 : in std_logic_vector(0 to WORD_SIZE-1);
+				mux_out : out std_logic_vector(0 to WORD_SIZE-1)
+		);
+	end component;
+
+	component Mux4x2 is
+		generic 
+		 (
+			WORD_SIZE : integer := 32
+		);
+		port
+		 (
+			  ctrl_entry : in std_logic_vector(0 to 1);
+			 mux_entry_00: in std_logic_vector(0 to WORD_SIZE-1);
+			 mux_entry_01: in std_logic_vector(0 to WORD_SIZE-1);
+			mux_entry_10 : in std_logic_vector(0 to WORD_SIZE-1);
+			mux_entry_11 : in std_logic_vector(0 to WORD_SIZE-1);
+				 mux_out : out std_logic_vector(0 to WORD_SIZE-1)
+		);
+	end component;
+
+	component RTL_register is
+		generic
+		 (
+			WORD_SIZE : integer := 32
+		);
+		port
+		 (
+			CLK : in std_logic;
+			ENABLE : in std_logic;
+			DATA_IN : in std_logic_vector (0 to WORD_SIZE-1);	
+			DATA_OUT : out std_logic_vector (0 to WORD_SIZE-1):= x"00000000"
+		);
+	end component;
+
+-- sinais da conexão da controladora
+signal IORD_OUT : std_logic;
+SIGNAL MEMWRITE_OUT : STD_LOGIC;
+SIGNAL IRWRITE_OUT :  STD_LOGIC ; 
+SIGNAL PCWRITE_OUT : STD_LOGIC; 
+SIGNAL BRANCH_OUT : STD_LOGIC ; 
+SIGNAL REGWRITE_OUT : STD_LOGIC ; 
+SIGNAL REGDST_OUT : STD_LOGIC ; 
+SIGNAL MEMTOREG_OUT : STD_LOGIC ; 
+SIGNAL ALUCONTROL_OUT : STD_LOGIC_VECTOR(2 DOWNTO 0);
+SIGNAL PCSRC_OUT : STD_LOGIC_VECTOR(1 DOWNTO 0);
+SIGNAL ALUSRCA_OUT : STD_LOGIC;
+SIGNAL ALUSRCB_OUT : STD_LOGIC_VECTOR(1 DOWNTO 0);
+SIGNAL BRANCH_AND_ZERO : STD_LOGIC;
+SIGNAL PC_EN : STD_LOGIC;
+
+signal 			 clock_g : std_logic;
+signal 			 PC_f, PC, mem_adr : std_logic_vector (31 downto 0);
+signal	  		 RD, instr, data : std_logic_vector (31 downto 0);
+signal 			 A3 : std_logic_vector (4 downto 0);
+signal 			 sigImm : std_logic_vector (31 downto 0);
+signal 			 RD1, RD2 : std_logic_vector (31 downto 0);
+signal 			 A, B : std_logic_vector (31 downto 0);
+signal 		 	 sig_ext_desl : std_logic_vector (31 downto 0);
+signal 			 WD_RF : std_logic_vector (31 downto 0);
+signal			 ALUresult : std_logic_vector(31 downto 0);
+signal 			 ALUout : std_logic_vector(31 downto 0);
+signal			 ZERO_OUT : STD_LOGIC;
+signal 			 Src_A : std_logic_vector (31 downto 0);
+signal			 Src_B : std_logic_vector (31 downto 0);
+signal			 PCJump : std_logic_vector(31 downto 0);
+
+begin
+	--Instanciacao: Blocos Principais
+	 InstrDataMemory : IDMemory port map(ADDRESS=>mem_adr, CLK=>CLOCK_MEM, WE=>MEMWRITE_OUT, WD=>B, RD=>RD);
+	
+	 Controladora : Controladora_Processador 
+	 port map(	 OP => instr(31 downto 26),
+					 FUNCT => instr(5 downto 0),
+					 CLK => clock_g,
+					 RST => RESET,
+					 IORD => IORD_OUT,
+					 MEMWRITE => MEMWRITE_OUT,
+					 IRWRITE => IRWRITE_OUT,
+					 PCWRITE => PCWRITE_OUT,
+					 BRANCH => BRANCH_OUT,
+					 ALUSRCA => ALUSRCA_OUT,
+					 REGWRITE => REGWRITE_OUT,
+					 REGDST => REGDST_OUT,
+					 MEMTOREG => MEMTOREG_OUT,
+					 ALUCONTROL => ALUCONTROL_OUT,
+					 PCSRC => PCSRC_OUT,
+					 ALUSRCB => ALUSRCB_OUT);
+					 
+		RegFile : RegisterFile 
+			port map( A1=>instr(25 downto 21), A2=>instr(20 downto 16), A3=>A3,
+						 WD3=>WD_RF, WE3=>REGWRITE_OUT, CLK=>clock_g,
+						 RD1=>RD1, RD2=>RD2 
+			);
+
+	   --Instanciacao: Componentes Menores 
+		clock_g<= CLOCK;
+	
+		reg_PC : RTL_Register port map(CLK=>clock_g, ENABLE=>PC_EN, DATA_IN=>PC_f, DATA_OUT=>PC);
+		
+		mux2x1_IorD : Mux2x1 generic map (WORD_SIZE => 32)
+    						  port map ( ctrl_entry  => IORD_OUT,
+											 mux_entry_0 => PC, 
+											 mux_entry_1 => ALUout, 
+											 mux_out => mem_adr);
+		
+	   reg_instr : RTL_register port map (CLK      => clock_g,
+													 ENABLE   => IRWRITE_OUT,
+                                        DATA_IN  => RD,
+                                        DATA_OUT => instr);
+                                        
+		reg_data : RTL_register port map (CLK 	 => clock_g,
+													 ENABLE   => '1',
+                                        DATA_IN  => RD,
+                                        DATA_OUT => data);                                     
+                                        
+		mux2x1_RegDst : Mux2x1 generic map (WORD_SIZE => 5)
+    						  port map (ctrl_entry  => REGDST_OUT,
+                                        mux_entry_0 => instr (20 downto 16), --rt
+                                        mux_entry_1 => instr (15 downto 11), --rd
+                                        mux_out 	=> A3);
+													 
+		mux2x1_MemToReg : Mux2x1 generic map (WORD_SIZE => 32)
+										 port map (ctrl_entry => MEMTOREG_OUT,
+													  mux_entry_0 => ALUout,
+													  mux_entry_1 => data,
+													  mux_out => WD_RF);
+                                         
+      signExt : extend port map (entrada => instr (15 downto 0),
+                                        saida   => sigImm);
+                                        
+	   reg_RD1 : RTL_register port map (CLK 	 => clock_g,
+													ENABLE   => '1',
+                                       DATA_IN  => RD1,
+                                       DATA_OUT => A);
+                                        
+	   reg_RD2 : RTL_register port map (CLK 	 => clock_g,
+													ENABLE   => '1',
+                                       DATA_IN	 => RD2,
+                                       DATA_OUT => B);
+													
+                                        
+	   mux2x1_SrcA : Mux2x1 generic map (WORD_SIZE => 32)
+         					   port map (ctrl_entry  => ALUSRCA_OUT,
+                                        mux_entry_0 => PC,
+                                        mux_entry_1 => A,
+                                        mux_out 	=> Src_A);
+                                        
+                                        
+     	mux4x2_SrcB : Mux4x2 port map  (ctrl_entry 	 => ALUSRCB_OUT,
+                                        mux_entry_00 => B,
+                                        mux_entry_01 => x"00000001",
+                                        mux_entry_10 => sigImm,
+                                        mux_entry_11 => sigImm, -- Entrada alterada devido ao formato de endereçamento diferente
+                                             mux_out => Src_B);
+
+		ALU_DATAPATH : alu port map (x => Src_A,
+								  y => Src_B,
+								  alucontrol => ALUCONTROL_OUT,
+								  saida => ALUresult,
+								  zero => ZERO_OUT);
+								  
+		BRANCH_AND_ZERO <= (ZERO_OUT AND BRANCH_OUT);
+		
+		PC_EN <= (BRANCH_AND_ZERO OR PCWRITE_OUT);
+		
+		reg_ALUResult : RTL_register port map (CLK => clock_g,
+															ENABLE => '1',
+															DATA_IN => ALUresult,
+															DATA_OUT => ALUout);
+		
+		-- PCJump alterado devido ao formato diferente de endereçamento de memória
+		PCJump <= (PC(31 downto 26) & instr(25 downto 0));
+		
+		mux4x2_PCSrc : Mux4x2 generic map (WORD_SIZE => 32)
+									 port map (ctrl_entry => PCSRC_OUT,
+												  mux_entry_00 => ALUresult,
+												  mux_entry_01 => ALUout,
+												  mux_entry_10 => PCJump,
+												  mux_entry_11 => ALUresult,
+												  mux_out => PC_f);
+		
+
+end arquitetura;
